@@ -2,21 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3b74d293-6be4-4eae-88db-cecbb0d0c2ae" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/javalib.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lab2.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../lab2setup/.idea/libraries/javalib.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../lab2setup/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../lab2setup/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../lab2setup/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../lab2setup/lab2setup.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../lab2setup/out/production/lab2setup/lab2setup.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DebugPractice/DebugExercise1.java" beforeDir="false" afterPath="$PROJECT_DIR$/DebugPractice/DebugExercise1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DebugPractice/DebugExercise2.java" beforeDir="false" afterPath="$PROJECT_DIR$/DebugPractice/DebugExercise2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Intlist/IntList.java" beforeDir="false" afterPath="$PROJECT_DIR$/Intlist/IntList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lab2setup/DogTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lab2setup/DogTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
