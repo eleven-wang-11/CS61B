@@ -66,10 +66,9 @@ public class NBody {
 
 			StdDraw.picture(0,0,backgroundImage);
 			for (Planet p:planets){
-				String imgPath = "images/" + p.imgFileName;
-				StdDraw.picture(p.xxPos,p.yyPos,imgPath);
-				StdDraw.show();
+				p.draw();
 			}
+			
 			StdDraw.show();
 			time += dt;
 		}

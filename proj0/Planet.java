@@ -5,7 +5,7 @@ public class Planet {
     public double yyVel;
     public double mass;
     public String imgFileName;
-    public final static double G =6.67e-11; //final means it cannot be changed
+    private final static double G =6.67e-11; //final means it cannot be changed
       //contructor
     public Planet(double xP, double yP, double xV,
       				double yV, double m, String img) {
@@ -75,6 +75,11 @@ public class Planet {
      	xxPos = xxPos + xxVel*dt;
      	yyPos = yyPos + yyVel*dt;
 
+     }
+     public void draw(){
+        String imgPath = "images/" + imgFileName;
+        StdDraw.picture(xxPos,yyPos,imgPath);
+        StdDraw.show();
      }
   
 }
