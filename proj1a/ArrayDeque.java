@@ -73,7 +73,7 @@ public class ArrayDeque<T> {
             return null;
         }
         int iterator = plusOne(nextFirst);
-        for (int i =0; i<index;i++){
+        for (int i =0; i<index; i++){
             iterator = plusOne(iterator);
         }
         return items[iterator];

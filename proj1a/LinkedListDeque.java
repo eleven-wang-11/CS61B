@@ -1,20 +1,20 @@
-import edu.princeton.cs.algs4.BreadthFirstDirectedPaths;
+
 import edu.princeton.cs.algs4.In;
 
 
-public class LinkedListDeque<BleepBlorp> {
+public class LinkedListDeque<T> {
 
     public class IntNode {
-        public BleepBlorp item;
+        public T item;
         public IntNode next;
         public IntNode pre;
-        public IntNode(BleepBlorp i, IntNode a, IntNode b) {
+        public IntNode(T i, IntNode a, IntNode b) {
             item = i;
             next = a;
             pre = b;
         }
     }
-    private IntNode sentinel;
+    private final IntNode sentinel;
     private int size;
 
     public LinkedListDeque(){
@@ -23,7 +23,7 @@ public class LinkedListDeque<BleepBlorp> {
         sentinel.next = sentinel;
         size = 0;
     }
-    public void addFirst(BleepBlorp item){
+    public void addFirst(T item){
         IntNode first = sentinel.next;
         IntNode newFirst = new IntNode(item,first,sentinel);
         sentinel.next = newFirst;
@@ -32,7 +32,7 @@ public class LinkedListDeque<BleepBlorp> {
         size += 1;
     }
 
-    public void addLast(BleepBlorp item) {
+    public void addLast(T item) {
         IntNode last = sentinel.pre;
         IntNode newLast = new IntNode(item, sentinel, last);
         last.next = newLast;
@@ -62,7 +62,7 @@ public class LinkedListDeque<BleepBlorp> {
         }
     }
 
-    public BleepBlorp removeFirst() {
+    public T removeFirst() {
         if (size == 0) {
             return null;
         }
@@ -75,7 +75,7 @@ public class LinkedListDeque<BleepBlorp> {
         return front.item;
     }
 
-    public BleepBlorp removeLast() {
+    public T removeLast() {
         if (size == 0) {
             return null;
         }
@@ -87,7 +87,11 @@ public class LinkedListDeque<BleepBlorp> {
         return last.item;
     }
 
-    public BleepBlorp get(int index) {
+    public T get(int index) {
+
+        if (index >= size || index<0){
+            return  null;
+        }
         int i = 0;
         IntNode first = sentinel.next;
         while (i < index) {
@@ -99,7 +103,7 @@ public class LinkedListDeque<BleepBlorp> {
         return first.item;
     }
 
-    public BleepBlorp getRecursive(int index) {
+    public T getRecursive(int index) {
         if (size <= index) {
             return null;
         }
@@ -107,7 +111,7 @@ public class LinkedListDeque<BleepBlorp> {
 
     }
 
-    public BleepBlorp recursiveHelper(int index, IntNode node) {
+    public T recursiveHelper(int index, IntNode node) {
         if (index == 0) {
             return node.item;
         }else {
