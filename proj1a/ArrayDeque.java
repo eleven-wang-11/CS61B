@@ -6,39 +6,35 @@ public class ArrayDeque<T> {
     private int nextLast;
 
 
-    public ArrayDeque(){
+    public ArrayDeque() {
         items = (T []) new Object[CAPACITY];
         size = 0;
-        nextFirst = items.length/2;
+        nextFirst = items.length / 2;
         nextLast = plusOne(nextFirst);
     }
-    public void addFirst(T item){
+    public void addFirst(T item) {
         resize();
-       items[nextFirst] = item;
-       nextFirst = minusOne(nextFirst);
-       size += 1;
+        items[nextFirst] = item;
+        nextFirst = minusOne(nextFirst);
+        size += 1;
     }
 
-    public void addLast(T item){
+    public void addLast(T item) {
         resize();
         items[nextLast] = item;
         nextLast = plusOne(nextLast);
         size += 1;
     }
-    public boolean isEmpty(){
-        if (size == 0){
-            return true;
-        }else {
-            return false;
-        }
+    public boolean isEmpty() {
+        return size == 0;
     }
     public int size() {
         return size;
     }
 
-    public void printDeque(){
+    public void printDeque() {
         int iterator = plusOne(nextFirst);
-        for (int i =0; i<size;i++){
+        for (int i = 0; i < size; i++) {
             System.out.print(items[iterator] + " ");
             iterator = plusOne(iterator);
         }
@@ -46,7 +42,7 @@ public class ArrayDeque<T> {
     }
 
     public T removeFirst() {
-        if (size == 0){
+        if (size == 0) {
             return null;
         }
         T returnItem = items[plusOne(nextFirst)];
@@ -57,8 +53,8 @@ public class ArrayDeque<T> {
         return returnItem;
 
     }
-    public T removeLast(){
-        if (size == 0){
+    public T removeLast() {
+        if (size == 0) {
             return null;
         }
         T returnItem = items[minusOne(nextLast)];
@@ -68,42 +64,42 @@ public class ArrayDeque<T> {
         resize();
         return returnItem;
     }
-    public T get(int index){
-        if (index >= size){
+    public T get(int index) {
+        if (index >= size) {
             return null;
         }
         int iterator = plusOne(nextFirst);
-        for (int i =0; i<index; i++){
+        for (int i = 0; i < index; i++) {
             iterator = plusOne(iterator);
         }
         return items[iterator];
     }
 
-    public void resize() {
+    private void resize() {
         if (size == items.length) {
             expand();
         }
 
-        if (size < items.length * 0.25 && size >CAPACITY){
+        if (size < items.length * 0.25 && size > CAPACITY) {
             reduce();
         }
     }
 
-    public void expand() {
-        changeCapacity(items.length*2);
+    private void expand() {
+        changeCapacity(items.length * 2);
     }
-    public void reduce() {
+    private void reduce() {
         changeCapacity(items.length / 2);
     }
-    public void changeCapacity(int capacity) {
+    private void changeCapacity(int capacity) {
         T[] temp = items;
         int begin = plusOne(nextFirst);
         int end = minusOne((nextLast));
         items = (T []) new Object[capacity];
-        nextFirst = items.length/2;
+        nextFirst = items.length / 2;
         nextLast = plusOne(nextFirst);
         //nextFirst does not change, only change nextLast
-        for (int i = begin; i !=(end); i = plusOne(i,temp.length)) {
+        for (int i = begin; i != end; i = plusOne(i, temp.length)) {
             items[nextLast] = temp[i];
             nextLast = plusOne(nextLast);
         }
@@ -111,41 +107,41 @@ public class ArrayDeque<T> {
         nextLast = plusOne(nextLast);
     }
 
-    public int plusOne(int index) {
-        if (index == items.length -1) {
+    private int plusOne(int index) {
+        if (index == items.length - 1) {
             index = 0;
-        } else{
+        } else {
             index += 1;
         }
         return index;
     }
 
-    public int plusOne(int index, int length) {
-        if (index == length -1) {
+    private int plusOne(int index, int length) {
+        if (index == length - 1) {
             index = 0;
-        } else{
+        } else {
             index += 1;
         }
         return index;
     }
 
-    public int minusOne(int index) {
-        if (index ==0){
+    private int minusOne(int index) {
+        if (index == 0) {
             index = items.length - 1;
-        } else{
+        } else {
             index -= 1;
         }
         return index;
     }
 
 
-    public static void main(String[] args) {
-        ArrayDeque<Integer> ald1 = new ArrayDeque<Integer >();
-        for (int i=0;i<100;i++) {
+    private static void main(String[] args) {
+        ArrayDeque<Integer> ald1 = new ArrayDeque<Integer>();
+        for (int i = 0; i < 100; i++) {
             ald1.addFirst(i);
         }
         ald1.printDeque();
-        for (int i=0;i<100;i++) {
+        for (int i = 0; i < 100; i++) {
             ald1.removeFirst();
         }
         System.out.println(ald1.size());

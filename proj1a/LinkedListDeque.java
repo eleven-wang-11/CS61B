@@ -1,13 +1,12 @@
 
-import edu.princeton.cs.algs4.In;
 
 
 public class LinkedListDeque<T> {
 
-    public class IntNode {
-        public T item;
-        public IntNode next;
-        public IntNode pre;
+    private class IntNode {
+        private T item;
+        private IntNode next;
+        private IntNode pre;
         public IntNode(T i, IntNode a, IntNode b) {
             item = i;
             next = a;
@@ -17,15 +16,15 @@ public class LinkedListDeque<T> {
     private final IntNode sentinel;
     private int size;
 
-    public LinkedListDeque(){
-        sentinel = new IntNode(null,null,null);
+    public LinkedListDeque() {
+        sentinel = new IntNode(null, null, null);
         sentinel.pre = sentinel;
         sentinel.next = sentinel;
         size = 0;
     }
-    public void addFirst(T item){
+    public void addFirst(T item) {
         IntNode first = sentinel.next;
-        IntNode newFirst = new IntNode(item,first,sentinel);
+        IntNode newFirst = new IntNode(item, first, sentinel);
         sentinel.next = newFirst;
         first.pre = newFirst;
 
@@ -43,11 +42,7 @@ public class LinkedListDeque<T> {
     }
 
     public boolean isEmpty() {
-        if (size == 0) {
-            return true;
-        }else{
-            return false;
-        }
+        return size == 0;
     }
 
     public int size() {
@@ -89,18 +84,15 @@ public class LinkedListDeque<T> {
 
     public T get(int index) {
 
-        if (index >= size || index<0){
+        if (index >= size || index < 0) {
             return  null;
         }
-        int i = 0;
-        IntNode first = sentinel.next;
-        while (i < index) {
-            if (first == sentinel) {
-                return null;
-            }
-            first = first.next;
+
+        IntNode node = sentinel.next;
+        for (int i = 0; i < index; i++) {
+            node = node.next;
         }
-        return first.item;
+        return node.item;
     }
 
     public T getRecursive(int index) {
@@ -114,8 +106,8 @@ public class LinkedListDeque<T> {
     public T recursiveHelper(int index, IntNode node) {
         if (index == 0) {
             return node.item;
-        }else {
-            return recursiveHelper(index-1, node.next);
+        } else {
+            return recursiveHelper(index - 1, node.next);
         }
     }
 }
