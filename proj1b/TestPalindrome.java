@@ -30,24 +30,23 @@ public class TestPalindrome {
     @Test
     public void testOverloadedMethod() {
         CharacterComparator offByOne = new OffByOne();
-        assertFalse(palindrome.isPalindrome("aa",offByOne));
-        assertFalse(palindrome.isPalindrome("bb",offByOne));
-        assertFalse(palindrome.isPalindrome("aA",offByOne));
-        assertTrue(palindrome.isPalindrome("a",offByOne));
-        assertTrue(palindrome.isPalindrome("flake",offByOne));
-        assertTrue(palindrome.isPalindrome("ab",offByOne));
-        assertTrue(palindrome.isPalindrome("abab",offByOne));
+        assertFalse(palindrome.isPalindrome("aa", offByOne));
+        assertFalse(palindrome.isPalindrome("bb", offByOne));
+        assertFalse(palindrome.isPalindrome("aA", offByOne));
+        assertTrue(palindrome.isPalindrome("a", offByOne));
+        assertTrue(palindrome.isPalindrome("flake", offByOne));
+        assertTrue(palindrome.isPalindrome("ab", offByOne));
+        assertTrue(palindrome.isPalindrome("abab", offByOne));
     }
 
     @Test
     public void testOverloadedMethodN() {
         CharacterComparator offByN = new OffByN(4);
-        assertFalse(palindrome.isPalindrome("aa",offByN));
-        assertFalse(palindrome.isPalindrome("bb",offByN));
-        assertFalse(palindrome.isPalindrome("aA",offByN));
-        assertTrue(palindrome.isPalindrome("works",offByN));
-        assertTrue(palindrome.isPalindrome("whils",offByN));
-        assertTrue(palindrome.isPalindrome("wakes",offByN));
-        assertTrue(palindrome.isPalindrome("aerie",offByN));
+        assertFalse(palindrome.isPalindrome("aa", offByN));
+        assertFalse(palindrome.isPalindrome("bb", offByN));
+        assertFalse(palindrome.isPalindrome("aA", offByN));
+        assertTrue(palindrome.isPalindrome("works", offByN));
+        assertTrue(palindrome.isPalindrome("&", offByN));
+        assertTrue(palindrome.isPalindrome("", offByN));
     }
 }
