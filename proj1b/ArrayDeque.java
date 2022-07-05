@@ -1,6 +1,4 @@
-import java.util.Deque;
-
-public class ArrayDeque<T> {
+public class ArrayDeque<T> implements Deque<T>{
     private T[] items;
     private int CAPACITY = 8;
     private int size;
@@ -14,6 +12,7 @@ public class ArrayDeque<T> {
         nextFirst = items.length / 2;
         nextLast = plusOne(nextFirst);
     }
+
     public void addFirst(T item) {
         resize();
         items[nextFirst] = item;
@@ -27,6 +26,8 @@ public class ArrayDeque<T> {
         nextLast = plusOne(nextLast);
         size += 1;
     }
+
+
     public boolean isEmpty() {
         return size == 0;
     }
