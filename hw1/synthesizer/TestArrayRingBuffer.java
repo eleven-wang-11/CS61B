@@ -1,6 +1,7 @@
 package synthesizer;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 /** Tests the ArrayRingBuffer class.
  *  @author Josh Hug
@@ -9,7 +10,15 @@ import static org.junit.Assert.*;
 public class TestArrayRingBuffer {
     @Test
     public void someTest() {
-        //ArrayRingBuffer arb = new ArrayRingBuffer(10);
+        ArrayRingBuffer arb = new ArrayRingBuffer(10);
+        arb.enqueue(1);
+        arb.enqueue(2);
+        arb.enqueue(3);
+        assertEquals(3,arb.fillCount);
+        assertEquals(1,arb.dequeue());
+        assertEquals(2,arb.fillCount);
+        assertEquals(2,arb.peek());
+
     }
 
     /** Calls tests for ArrayRingBuffer. */
